@@ -9,9 +9,9 @@ import {
 } from '@angular/core';
 
 
+import { DOCUMENT }      from '@angular/common';
 import { environment }   from './environments/environment';
 import { AppComponent, } from './app/app.component';
-import { DOCUMENT }      from '@angular/common';
 import { AppModule }     from './app/app.module';
 
 if (environment.production) {
@@ -38,13 +38,11 @@ const extraProviders: StaticProvider[] = [
 ];
 
 
-
-const rootInjector: Injector =
-    ɵcreateInjector(
-        AppModule,
-        null,
-        extraProviders,
-        'root');
+const rootInjector: Injector = ɵcreateInjector(
+    AppModule,
+    null,
+    extraProviders,
+    'root');
 
 ɵrenderComponent(AppComponent, {
     injector: rootInjector,
