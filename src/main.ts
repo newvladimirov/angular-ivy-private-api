@@ -20,7 +20,6 @@ if (environment.production) {
 
 const extraProviders: StaticProvider[] = [
     {
-        deps: [],
         provide: ErrorHandler,
         useClass: ErrorHandler,
     },
