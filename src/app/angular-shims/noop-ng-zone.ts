@@ -1,13 +1,9 @@
 import {
     EventEmitter,
     NgZone
-} from '@angular/core';
+}               from '@angular/core';
 
 export class NoopNgZone implements NgZone {
-    static isInAngularZone(): boolean {
-        return false;
-    }
-    
     readonly hasPendingMicrotasks: boolean = false;
     readonly hasPendingMacrotasks: boolean = false;
     readonly isStable: boolean = true;

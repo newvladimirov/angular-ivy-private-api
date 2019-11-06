@@ -1,4 +1,7 @@
-import { NgModule }         from '@angular/core';
+import {
+    NgModule,
+    NgZone
+}                           from '@angular/core';
 import { TestComponent }    from './test/test.component';
 import { CommonModule }     from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
@@ -16,5 +19,8 @@ import { AppComponent }     from './app.component';
     ],
 })
 export class AppModule {
+    constructor(private zone: NgZone) {
+        (window as any).Zone = zone;
+    }
 }
 

@@ -2,6 +2,7 @@ import {
     enableProdMode,
     ErrorHandler,
     Injector,
+    NgZone,
     PLATFORM_ID,
     StaticProvider,
     ɵcreateInjector,
@@ -13,6 +14,7 @@ import { DOCUMENT }      from '@angular/common';
 import { environment }   from './environments/environment';
 import { AppComponent, } from './app/app.component';
 import { AppModule }     from './app/app.module';
+import { NoopNgZone }    from './app/angular-shims/noop-ng-zone';
 
 if (environment.production) {
     enableProdMode();
@@ -30,17 +32,20 @@ const extraProviders: StaticProvider[] = [
     {
         provide: PLATFORM_ID,
         useValue: 'browser'
-    },
-    // {
-    //     provide: NgZone,
-    //     useClass: NoopNgZone
-    // }
+    }
 ];
 
 
+const zoneInjector = ɵcreateInjector(null, null, [
+    {
+        provide: NgZone,
+        useFactory: () => new NoopNgZone()
+    },
+], 'zone_injector');
+
 const rootInjector: Injector = ɵcreateInjector(
     AppModule,
-    null,
+    zoneInjector,
     extraProviders,
     'root');
 
