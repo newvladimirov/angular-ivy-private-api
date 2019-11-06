@@ -1,7 +1,6 @@
 import {
     enableProdMode,
     ErrorHandler,
-    Injectable,
     Injector,
     PLATFORM_ID,
     StaticProvider,
@@ -32,8 +31,13 @@ const extraProviders: StaticProvider[] = [
     {
         provide: PLATFORM_ID,
         useValue: 'browser'
-    }
+    },
+    // {
+    //     provide: NgZone,
+    //     useClass: NoopNgZone
+    // }
 ];
+
 
 
 const rootInjector: Injector =

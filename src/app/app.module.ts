@@ -12,7 +12,6 @@ import { AppComponent }     from './app.component';
     imports: [
         CommonModule,
         HttpClientModule,
-        // RouterModule.forRoot([])
         // NgxsModule.forRoot([]),
     ],
 })
