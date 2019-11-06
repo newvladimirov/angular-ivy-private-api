@@ -11,12 +11,10 @@ import { HttpClient } from '@angular/common/http';
     styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-    show = false;
-    title = 'Test Angular 9 RC0';
+    public show: boolean = false;
     
     constructor(private cdr: ChangeDetectorRef,
                 private http: HttpClient) {
-    
     }
     
     click() {
